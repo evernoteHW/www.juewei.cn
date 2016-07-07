@@ -1,0 +1,202 @@
+label, #dizhi {
+	float: left;
+	width: 160px;
+	height: 20px;
+	text-align: left;
+	line-height: 20px;
+	background-size: 10px;
+}
+input[type="text"], textarea {
+	width: 350px;
+	height: 26px;
+	line-height: 26px;
+	*line-height: 18px;
+	border: 1px solid #aaa;
+	font-size:12px;
+}
+textarea {
+	height: 60px;
+	min-height: 60px;
+}
+input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	*filter:alpha(opacity=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+	opacity:0;
+}
+.Del {
+	z-index: 1000;
+	width: 20px;
+	height: 20px;
+	background: url("../img/del.png")/*tpa=http://www.juewei.cn/img/del.png*/;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+form > div {
+	margin: 10px 0;
+}
+#proBox {
+	position: relative;
+}
+select {
+	overflow: hidden;
+	float: left;
+	width: 170px;
+	height: 26px;
+	line-height: 26px;
+	margin-right: 10px;
+	border: 1px solid #aaa;
+	background-size: 26px 100%;
+}
+#acreage {
+	float: left;
+	width: 320px;
+	margin-right: 7px;
+}
+.foruserId, .foruserPic, .formiandian {
+	letter-spacing: 2px;
+}
+.img1 {
+	position: absolute;
+	border-radius: 10px;
+	width: 108px;
+	height: 82px;
+}
+#storePicShow1, #storePicShow2, #storePicShow3, #storePicShow4, #storePicShow5, #storePicShow {
+	margin-bottom: 10px;
+}
+#idPicShowO, #idPicShowT, #storePicShow, #buLiShow, #storePicShow1, #storePicShow2, #storePicShow3, #storePicShow4, #storePicShow5 {
+	position: relative;
+	float: left;
+	width: 110px;
+	height: 84px;
+	border: 1px solid #aaa;
+	background: url("../img/1007.png")/*tpa=http://www.juewei.cn/img/1007.png*/ no-repeat center center;
+	background-size: 100% 100%;
+	margin-right: 10px;
+}
+#storePicShow span{
+	font-size:12px;
+}
+#idPicShowO, #idPicShowT {
+	margin-bottom: 32px;
+}
+.storePicShowBox {
+	overflow: hidden;
+}
+#fanmian, #zhengmian {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #aaa;
+	text-align: center;
+	background: #9fa0a0;
+	color: #fff;
+	line-height: 30px;
+	letter-spacing: 5px;
+	margin-top: 83px;
+}
+#storeNum{
+	*margin-top:40px;
+}
+#storeNum div {
+	float: left;
+}
+#noStore, #store {
+	border: 1px solid #999999;
+}
+#storeNum span {
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin: 5px 8px 0 0;
+}
+#store {
+	border: 1px solid #999999;
+	margin: 6px 10px 0 0;
+}
+.comselect {
+	border: 1px solid transparent;
+	background: url("../img/1009.png")/*tpa=http://www.juewei.cn/img/1009.png*/ no-repeat;
+	background-size: 100% 100%;
+	-webkit-background-origin: border;
+}
+#StoreArea {
+	height: 26px;
+	*height: 36px;
+}
+#StoreArea div {
+	float: left;
+}
+#StoreArea div span {
+	font-size: 14px;
+	line-height: 40px;
+	float: left;
+}
+#pingf {
+	font-size: 8px;
+	margin-top: -5px;
+}
+#addPic div {
+	text-align: center;
+}
+#buLi span, #addPic div span {
+	display: block;
+	margin-top: 57px;
+}
+#buLi span {
+	font-size: 12px;
+	text-align: center;
+}
+#buLi {
+	margin-top: -10px;
+}
+#qu div {
+	overflow: hidden;
+	width: 50%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #e0131c;
+	color: #fff;
+	letter-spacing: 5px;
+	margin: 0 auto;
+	font-size: 16px;
+	cursor: pointer;
+}
+.correct {
+	border: 1px solid #6adf6f;
+}
+.error {
+	border: 1px solid #f6530b;
+}
+.infoAll {
+	display: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 250%;
+	background: rgba(0, 0, 0, .7);
+	z-index: 20000;
+}
+.showstage7 form {
+	background: #fff;
+	width: 680px;
+	margin: 0 auto;
+	padding: 20px 80px;
+}
+form>div {
+	width: 100%;
+	overflow: hidden;
+}
+form input, form textarea {
+	background: #fff;
+}
