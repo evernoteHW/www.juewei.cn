@@ -10,6 +10,66 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <title>首页</title>
+<script type="text/javascript" src="js/jquery.js"/></script>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=2000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
 <link rel="stylesheet" type="text/css" href="css/jw.css" tppabs="http://www.juewei.cn/css/jw.css">
 <style>
 .banner_box{
@@ -18,6 +78,20 @@
 </style>
 </head>
 <body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+/* banner */
+.banner{height:400px;overflow:hidden;}
+.banner .d1{width:100%;height:392px;display:block;position:absolute;left:0px;top:0px;}
+.banner .d2{width:100%;height:30px;clear:both;position:absolute;z-index:100;left:0px;top:360px;}
+.banner .d2 ul{float:left;position:absolute;left:50%;top:0;margin:0 0 0 -96px;display:inline;}
+.banner .d2 li{width:17px;height:15px;overflow:hidden;cursor:pointer;background:url(images/img1.png) no-repeat center;float:left;margin:0 3px;display:inline;}
+.banner .d2 li.nuw{background:url(images/img1_1.png) no-repeat center;}
+</style>
 
 <div class="m_header">
 	<img src="img/menu.svg" tppabs="http://www.juewei.cn/img/menu.svg" class="m_header_left">
@@ -73,15 +147,31 @@
 			<img src="img/kong.png" index="2">
 		</div> -->
 	</div>
+	<div class="banner" id="banner" >
+	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner1.jpg) center no-repeat;"></a>
+	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner2.jpg) center no-repeat;"></a>
+	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner3.jpg) center no-repeat;"></a>
+	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner4.jpg) center no-repeat;"></a>
+	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner5.jpg) center no-repeat;"></a>
+		<div class="d2" id="banner_id">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
 	<div class="slider_bottom">
-		<!-- <img id="slider_bottom0" src="img/slider0.jpg">
+		<img id="slider_bottom0" src="img/slider0.jpg">
 		<img id="slider_bottom1" src="img/slider1.jpg">
 		<img id="slider_bottom2" src="img/slider2.jpg">
 		<img id="slider_bottom3" src="img/slider3.jpg">
 		<img id="slider_bottom4" src="img/slider4.jpg">
 		
 		<img id="slider_bottom_left" src="img/left.png">
-		<img id="slider_bottom_right" src="img/right.png"> -->
+		<img id="slider_bottom_right" src="img/right.png">
 	</div>
 	<div class="show">
 		<img src="img/5.png" tppabs="http://www.juewei.cn/img/5.png">
@@ -127,18 +217,21 @@
 			<div class="infoshow">
 				<div class="infoshowleft">
 					<img src="img/qrcode.png" tppabs="http://www.juewei.cn/img/qrcode.png" alt="">
-					<div style="width:150px;text-align:center;margin-top:10px;">æ‰«ä¸€æ‰«æ›´å¤šæ´»åŠ¨æƒŠå–œ</div>
+					<div style="width:150px;text-align:center;margin-top:10px;">1111111111</div>
 				</div>
 				<div class="infoshowright">
-					<div style="font-size:16px;font-size:weight;color:#000;">é—¨åº—ä¼˜æƒ ä¿¡æ¯ï¼š</div>
+					<div style="font-size:16px;font-size:weight;color:#000;">22222222</div>
 					<p>
-						æ–°å¹´æ–°æ°”è±¡/ç»å‘³å¤§ä¿ƒé”€<br/>
-					2016.1.8--2016.1.10 ä¹°ä¸€æ–¤é€åŠæ–¤ï¼Œå…¨åœº<br/>ä¹°ä¸€æ–¤æŒ‡å®šè¤èœï¼ˆé¸­è„–ï¼Œé¸­çˆªï¼Œé¸­æž¶ï¼‰
-					é€<br/>åŠæ–¤æŒ‡å®šç´ èœï¼ˆè—•ç‰‡/æ¯›è±†/è…ç«¹ï¼‰å¿ƒåŠ¨é‚£<br/>å°±èµ¶ç´§è¡ŒåŠ¨å§<br/>
-	<br/>
-						æ–°å¹´æ–°æ°”è±¡/ç»å‘³å¤§ä¿ƒé”€<br/>
-					2016.1.8--2016.1.10 ä¹°ä¸€æ–¤é€åŠæ–¤ï¼Œå…¨åœº<br/>ä¹°ä¸€æ–¤æŒ‡å®šè¤èœï¼ˆé¸­è„–ï¼Œé¸­çˆªï¼Œé¸­æž¶ï¼‰
-					é€<br/>åŠæ–¤æŒ‡å®šç´ èœï¼ˆè—•ç‰‡/æ¯›è±†/è…ç«¹ï¼‰å¿ƒåŠ¨é‚£<br/>å°±èµ¶ç´§è¡ŒåŠ¨å§
+						333333333<br/>
+						4444444<br/>
+						555555555<br/>
+						6666666666<br/>
+						777777777777<br/><br/>
+						88888888888888<br/>
+						999999999<br/>
+						000000000000<br/>
+						aaaaaaaaaaaaa<br/>
+						bbbbbbbbbbbbb
 					</p>
 
 				</div>
@@ -148,22 +241,22 @@
 </div>
 <div class="footer">
 	<div class="footer_content">
-		<p class="title">å®¢æœçƒ­çº¿</p>
+		<p class="title">1111111111</p>
 		<p class="title">400-999-5917</p>
-		<p class="title">å…³äºŽæˆ‘ä»¬</p>
-		<p><a href="jm.html" tppabs="http://www.juewei.cn/jm.html">å…³äºŽå¼€åº—</a></p>
-		<p><a href="join.html" tppabs="http://www.juewei.cn/join.html">æ‹›å…µä¹°é©¬</a></p>
-		<p class="title">ç½‘ç»œå•†åŸŽ</p>
+		<p class="title">555555555</p>
+		<p><a href="jm.html" tppabs="http://www.juewei.cn/jm.html">333333333</a></p>
+		<p><a href="join.html" tppabs="http://www.juewei.cn/join.html">4444444</a></p>
+		<p class="title">6666666666</p>
 		<p class="imgbox">
 			<a href="javascript:if(confirm('https://jueweics.tmall.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jueweics.tmall.com/'" tppabs="https://jueweics.tmall.com/"><img src="img/tmall.png" tppabs="http://www.juewei.cn/img/tmall.png" alt=""></a>
 			<a href="javascript:if(confirm('http://juewei.jd.com/  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://juewei.jd.com/'" tppabs="http://juewei.jd.com/"><img src="img/jd.png" tppabs="http://www.juewei.cn/img/jd.png" alt=""></a>
 			<a href="javascript:if(confirm('http://shop.yhd.com/m-156045.html?tp=15.45674130.589.0.5.L5T69WA-10-90ve6  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shop.yhd.com/m-156045.html?tp=15.45674130.589.0.5.L5T69WA-10-90ve6'" tppabs="http://shop.yhd.com/m-156045.html?tp=15.45674130.589.0.5.L5T69WA-10-90ve6"><img src="img/no1.png" tppabs="http://www.juewei.cn/img/no1.png" alt=""></a>
 			<a href="javascript:if(confirm('http://shop.suning.com/70070032/index.html  \n\n¸ÃÎÄ¼þÎÞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·þÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shop.suning.com/70070032/index.html'" tppabs="http://shop.suning.com/70070032/index.html"><img src="img/suning.png" tppabs="http://www.juewei.cn/img/suning.png" alt=""></a>
 		</p>
-		<p class="title">è”ç³»æˆ‘ä»¬</p>
-		<p>æ€»éƒ¨åœ°å€ï¼šæ¹–å—çœé•¿æ²™å¸‚èŠ™è“‰åŒºæ™šæŠ¥å¤§é“267å·æ™šæŠ¥å¤§åŽ¦16æ¥¼</p>
-		<p>ç”µè¯ï¼š0731-85174397</p>
-		<p class="copyright">Copyright Right @ 2012-2025 jueiwei.cn Powered By ç»å‘³é£Ÿå“è‚¡ä»½æœ‰é™å…¬å¸</p>
+		<p class="title">99999999</p>
+		<p>777777777777</p>
+		<p>电话 0731-85174397</p>
+		<p class="copyright">Copyright Right @ 2012-2025 jueiwei.cn Powered B88888888888888</p>
 	</div>
 </div>
 <div class="aside">
@@ -190,23 +283,6 @@ function on_resize(){
 	var size = document.body.clientWidth/24.2;
 	$('.banner_txt').css('font-size', size);
 }
-
-/*$.getJSON('sys/api-sales', function(d){
-	if(d.code != 0){
-		alert(d.message);
-		return;
-	}
-
-	$('.banner_txt').text(d.message);
-})*/
-
-// if welcome
-/*if(/welcome=1/gi.test(document.cookie) || document.referrer.replace('http://', '').split('/')[0] == location.toString().replace('http://', '').split('/')[0]){
-	document.cookie = 'welcome=a; expires=' + (new Date(Date.now() - 10000000000)).toGMTString();
-}else{
-	location = 'welcome.html'/*tpa=http://www.juewei.cn/welcome.html*/
-}*/
-
 
 // slider 1:
 /*
@@ -346,80 +422,6 @@ for(var i = 0; i < 5; i++){
 		$('#shape0'+$(this).attr('id').replace('shape1', '')).show();
 	})
 }
-
-// èŽ·å–åœ°åŒºä¿¡æ¯
-$.get('http://123.56.42.248:82/api/Address/getProvince', function(d){
-	if(d.code != 0){
-		alert('èŽ·å–çœä»½ä¿¡æ¯å¤±è´¥')
-		return;
-	}
-	var province = d.data;
-	province_arr.length = 0;
-	// init select
-	var _select_html_str = '';
-	for (var i = 0, len = province.length; i < len; i++) {
-		province_arr[province[i].addrid] = province[i].name;
-		_select_html_str += '<option value="'+province[i].addrid+'">'+province[i].name+'</option>';
-	};
-	$('#select_province').html('<option value ="0">è¯·é€‰æ‹©</option>' + _select_html_str)
-}, 'json')
-
-// bind select change event
-$('#select_province').on('change', function(){
-	if($(this).val() == '0') return;
-	$.post('http://123.56.42.248:82/api/Address/getCity', {provinceId: $(this).val()}, function(d){
-		var city = d.data, _select_html_str = '';
-		city_arr.length = 0;
-		for (var i = 0, len = city.length; i < len; i++) {
-			city_arr[city[i].addrid] = city[i].name;
-			_select_html_str += '<option value="'+city[i].addrid+'">'+city[i].name+'</option>';
-		};
-		$('#select_city').html('<option value ="0">è¯·é€‰æ‹©</option>' + _select_html_str)
-	}, 'json')
-})
-
-$('#select_city').on('change', function(){
-	if($(this).val() == '0') return;
-	$.post('http://123.56.42.248:82/api/Address/getArea', {cityId: $(this).val()}, function(d){
-		var area = d.data, _select_html_str = '';
-		area_arr.length = 0;
-		for (var i = 0, len = area.length; i < len; i++) {
-			area_arr[area[i].addrid] = area[i].name;
-			_select_html_str += '<option value="'+area[i].addrid+'">'+area[i].name+'</option>';
-		};
-		$('#select_area').html('<option value ="0">è¯·é€‰æ‹©</option>' + _select_html_str)
-	}, 'json')
-})
-
-$('#area_search_btn').click(function(){
-	var _select_province = $('#select_province').val()
-	var _select_city = $('#select_city').val()
-	var _select_area = $('#select_area').val()
-	if(_select_province == 0){
-		alert('è¯·é€‰æ‹©çœä»½')
-		return
-	}
-
-	if(_select_city == 0){
-		alert('è¯·é€‰æ‹©å¸‚')
-		return
-	}
-
-	if(_select_area == 0){
-		alert('è¯·é€‰æ‹©åŒºåŸŸ')
-		return
-	}
-
-	location = 'find.html-city=.htm'/*tpa=http://www.juewei.cn/find.html?city=*/ + encodeURIComponent(province_arr[_select_province] +'|'+ city_arr[_select_city] +'|'+ area_arr[_select_area]);
-})
-
-/*$('#select_province').on('mouseenter', function(){
-	$('.infoshow').show();
-}).click(function(){
-	$('.infoshow').hide();
-}).on('mouseleave', function(){
-	$('.infoshow').hide();
-})*/
 
 </script>
 </html>
