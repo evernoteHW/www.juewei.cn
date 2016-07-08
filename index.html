@@ -191,23 +191,6 @@ function on_resize(){
 	$('.banner_txt').css('font-size', size);
 }
 
-/*$.getJSON('sys/api-sales', function(d){
-	if(d.code != 0){
-		alert(d.message);
-		return;
-	}
-
-	$('.banner_txt').text(d.message);
-})*/
-
-// if welcome
-/*if(/welcome=1/gi.test(document.cookie) || document.referrer.replace('http://', '').split('/')[0] == location.toString().replace('http://', '').split('/')[0]){
-	document.cookie = 'welcome=a; expires=' + (new Date(Date.now() - 10000000000)).toGMTString();
-}else{
-	location = 'welcome.html'/*tpa=http://www.juewei.cn/welcome.html*/
-}*/
-
-
 // slider 1:
 /*
 <img id="slider_top0" src="img/banner01.jpg"/*tpa=http://www.juewei.cn/img/banner01.jpg*/>
@@ -413,13 +396,6 @@ $('#area_search_btn').click(function(){
 	location = 'find.html-city=.htm'/*tpa=http://www.juewei.cn/find.html?city=*/ + encodeURIComponent(province_arr[_select_province] +'|'+ city_arr[_select_city] +'|'+ area_arr[_select_area]);
 })
 
-/*$('#select_province').on('mouseenter', function(){
-	$('.infoshow').show();
-}).click(function(){
-	$('.infoshow').hide();
-}).on('mouseleave', function(){
-	$('.infoshow').hide();
-})*/
 
 </script>
 </html>
