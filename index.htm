@@ -13,63 +13,33 @@
 <script type="text/javascript" src="js/jquery.js"/></script>
 <script type="text/javascript">
 function banner(){	
-	var bn_id = 0;
-	var bn_id2= 1;
-	var speed33=2000;
-	var qhjg = 1;
-    var MyMar33;
-	$("#banner .d1").hide();
-	$("#banner .d1").eq(0).fadeIn("slow");
-	if($("#banner .d1").length>1)
-	{
-		$("#banner_id li").eq(0).addClass("nuw");
-		function Marquee33(){
-			bn_id2 = bn_id+1;
-			if(bn_id2>$("#banner .d1").length-1)
-			{
-				bn_id2 = 0;
-			}
-			$("#banner .d1").eq(bn_id).css("z-index","2");
-			$("#banner .d1").eq(bn_id2).css("z-index","1");
-			$("#banner .d1").eq(bn_id2).show();
-			$("#banner .d1").eq(bn_id).fadeOut("slow");
-			$("#banner_id li").removeClass("nuw");
-			$("#banner_id li").eq(bn_id2).addClass("nuw");
-			bn_id=bn_id2;
-		};
-	
-		MyMar33=setInterval(Marquee33,speed33);
-		
-		$("#banner_id li").click(function(){
-			var bn_id3 = $("#banner_id li").index(this);
-			if(bn_id3!=bn_id&&qhjg==1)
-			{
-				qhjg = 0;
-				$("#banner .d1").eq(bn_id).css("z-index","2");
-				$("#banner .d1").eq(bn_id3).css("z-index","1");
-				$("#banner .d1").eq(bn_id3).show();
-				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
-				$("#banner_id li").removeClass("nuw");
-				$("#banner_id li").eq(bn_id3).addClass("nuw");
-				bn_id=bn_id3;
+	//event
+	var slider_bottom_index = 0;
+	$('#slider_bottom_left').click(function(){
+		slider_bottom_index--
+		if(slider_bottom_index < 0) slider_bottom_index = 5 - 1;
+		$('.slider_bottom>img').each(function(k, v){
+			if(k < 5){
+				$(v).hide();
 			}
 		})
-		$("#banner_id").hover(
-			function(){
-				clearInterval(MyMar33);
+		$('#slider_bottom'+slider_bottom_index).fadeIn();
+	})
+	$('#slider_bottom_right').click(function(){
+		slider_bottom_index++
+		if(slider_bottom_index > 5- 1) slider_bottom_index = 0;
+		$('.slider_bottom>img').each(function(k, v){
+			if(k < 5){
+				$(v).hide();
 			}
-			,
-			function(){
-				MyMar33=setInterval(Marquee33,speed33);
-			}
-		)	
-	}
-	else
-	{
-		$("#banner_id").hide();
-	}
+		})
+		$('#slider_bottom'+slider_bottom_index).fadeIn();
+	})
+
+	timesetBottom();
 }
 </script>
+
 <link rel="stylesheet" type="text/css" href="css/jw.css" tppabs="http://www.juewei.cn/css/jw.css">
 <style>
 .banner_box{
@@ -84,13 +54,6 @@ function banner(){
 a,img{border:0;}
 body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
 
-/* banner */
-.banner{height:400px;overflow:hidden;}
-.banner .d1{width:100%;height:392px;display:block;position:absolute;left:0px;top:0px;}
-.banner .d2{width:100%;height:30px;clear:both;position:absolute;z-index:100;left:0px;top:360px;}
-.banner .d2 ul{float:left;position:absolute;left:50%;top:0;margin:0 0 0 -96px;display:inline;}
-.banner .d2 li{width:17px;height:15px;overflow:hidden;cursor:pointer;background:url(images/img1.png) no-repeat center;float:left;margin:0 3px;display:inline;}
-.banner .d2 li.nuw{background:url(images/img1_1.png) no-repeat center;}
 </style>
 
 <div class="m_header">
@@ -146,22 +109,6 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
 			<img src="img/kong.png" index="1">
 			<img src="img/kong.png" index="2">
 		</div> -->
-	</div>
-	<div class="banner" id="banner" >
-	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner1.jpg) center no-repeat;"></a>
-	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner2.jpg) center no-repeat;"></a>
-	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner3.jpg) center no-repeat;"></a>
-	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner4.jpg) center no-repeat;"></a>
-	<a href="http://sc.chinaz.com/" class="d1" style="background:url(images/banner5.jpg) center no-repeat;"></a>
-		<div class="d2" id="banner_id">
-			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
 	</div>
 	<div class="slider_bottom">
 		<img id="slider_bottom0" src="img/slider0.jpg">
@@ -271,6 +218,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
 </body>
 <script src="js/jquery.min.js" tppabs="http://www.juewei.cn/js/jquery.min.js"></script>
 <script src="js/jw.js" tppabs="http://www.juewei.cn/js/jw.js"></script>
+<script type="text/javascript">banner()</script>
 <script>
 var province_arr = [], city_arr = [], area_arr = [];
 
@@ -351,57 +299,6 @@ $(document).on('click', '#point>img', function(){
 });
 timeset();
 
-// slider 2:
-/*
-<img id="slider_bottom0" src="img/slider0.jpg"/*tpa=http://www.juewei.cn/img/slider0.jpg*/>
-<img id="slider_bottom1" src="img/slider1.jpg"/*tpa=http://www.juewei.cn/img/slider1.jpg*/>
-<img id="slider_bottom2" src="img/slider2.jpg"/*tpa=http://www.juewei.cn/img/slider2.jpg*/>
-<img id="slider_bottom3" src="img/slider3.jpg"/*tpa=http://www.juewei.cn/img/slider3.jpg*/>
-<img id="slider_bottom4" src="img/slider4.jpg"/*tpa=http://www.juewei.cn/img/slider4.jpg*/>
-
-<img id="slider_bottom_left" src="img/left.png"/*tpa=http://www.juewei.cn/img/left.png*/>
-<img id="slider_bottom_right" src="img/right.png"/*tpa=http://www.juewei.cn/img/right.png*/>
-*/
-$.get('sys/api-gallery_list_by_tag-index_bottom', function(d){
-	if(d.code != 0){
-		alert(d.message);
-		return;
-	}
-
-	var arr = d.message;
-	var slider2 = '';
-	for(var i = 0; i < arr.length; i++){
-		slider2 += '<img id="slider_bottom'+i+'" src=".'+arr[i].img+'">';
-	}
-	slider2 += '<img id="slider_bottom_left" src="img/left.png"/*tpa=http://www.juewei.cn/img/left.png*/><img id="slider_bottom_right" src="img/right.png"/*tpa=http://www.juewei.cn/img/right.png*/>';
-	$('.slider_bottom').append(slider2);
-
-	//event
-	var slider_bottom_index = 0;
-	$('#slider_bottom_left').click(function(){
-		slider_bottom_index--
-		if(slider_bottom_index < 0) slider_bottom_index = arr.length - 1;
-		$('.slider_bottom>img').each(function(k, v){
-			if(k < arr.length){
-				$(v).hide();
-			}
-		})
-		$('#slider_bottom'+slider_bottom_index).fadeIn();
-	})
-	$('#slider_bottom_right').click(function(){
-		slider_bottom_index++
-		if(slider_bottom_index > arr.length - 1) slider_bottom_index = 0;
-		$('.slider_bottom>img').each(function(k, v){
-			if(k < arr.length){
-				$(v).hide();
-			}
-		})
-		$('#slider_bottom'+slider_bottom_index).fadeIn();
-	})
-
-	timesetBottom();
-
-}, 'json');
 
 function timesetBottom(){
 	setTimeout(function(){
