@@ -1071,6 +1071,11 @@ input, textarea {
 	background: #da230f;
 		padding-bottom: 50px;
 }
+.showstage8 {
+	background: #da230f;
+		padding-bottom: 50px;
+		text-align:center;
+}
 .des_title {
 	font-size: 20px;
 	font-weight: bold;
