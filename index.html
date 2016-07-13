@@ -30,9 +30,9 @@
 	<div class="m_menu">
 		<ul>
 			<li><a href="index.html">首页</a></li>
-			<li><a href="headline.html">麻辣味头条</a></li>
+			<li><a href="headline.html">麻辣1号头条</a></li>
 			<li><a href="la.html">鲜香麻辣</a></li>
-			<li><a href="ch.html">麻辣粉之家</a></li>
+			<li><a href="ch.html">麻辣1号之家</a></li>
 			<li><a href="join.html">招兵买马</a></li>
 			<li><a href="baicheng.html">百城代言</a></li>
 			<li><a href="service.html">服务平台</a></li>
@@ -51,11 +51,11 @@
 	<div class="navigation">
 		<ul>
 			<li class="active"><a href="index.html">首页</a></li>
-			<li ><a href="headline.html">麻辣味头条</a></li>
+			<li ><a href="headline.html">麻辣1号头条</a></li>
 			<li><a href="la.html">鲜香麻辣</a></li>
 			<li><a href="jm.html">如何加盟</a></li>
 			<li class="li_img"><a href="index.html"><img src="img/1.png" /></a></li>
-			<li><a href="ch.html">麻辣粉之家</a></li>
+			<li><a href="ch.html">麻辣1号之家</a></li>
 			<li><a href="join.html">招兵买马</a></li>
 			<li><a href="baicheng.html">百城代言</a></li>
 			<li><a href="search.html">服务平台</a></li>
@@ -311,71 +311,71 @@ for(var i = 0; i < 5; i++){
 	})
 }
 
-// 获取地区信息
-$.get('http://123.56.42.248:82/api/Address/getProvince', function(d){
-	if(d.code != 0){
-		alert('获取省份信息失败')
-		return;
-	}
-	var province = d.data;
-	province_arr.length = 0;
-	// init select
-	var _select_html_str = '';
-	for (var i = 0, len = province.length; i < len; i++) {
-		province_arr[province[i].addrid] = province[i].name;
-		_select_html_str += '<option value="'+province[i].addrid+'">'+province[i].name+'</option>';
-	};
-	$('#select_province').html('<option value ="0">请选择</option>' + _select_html_str)
-}, 'json')
+// // 获取地区信息
+// $.get('http://123.56.42.248:82/api/Address/getProvince', function(d){
+// 	if(d.code != 0){
+// 		alert('获取省份信息失败')
+// 		return;
+// 	}
+// 	var province = d.data;
+// 	province_arr.length = 0;
+// 	// init select
+// 	var _select_html_str = '';
+// 	for (var i = 0, len = province.length; i < len; i++) {
+// 		province_arr[province[i].addrid] = province[i].name;
+// 		_select_html_str += '<option value="'+province[i].addrid+'">'+province[i].name+'</option>';
+// 	};
+// 	$('#select_province').html('<option value ="0">请选择</option>' + _select_html_str)
+// }, 'json')
 
-// bind select change event
-$('#select_province').on('change', function(){
-	if($(this).val() == '0') return;
-	$.post('http://123.56.42.248:82/api/Address/getCity', {provinceId: $(this).val()}, function(d){
-		var city = d.data, _select_html_str = '';
-		city_arr.length = 0;
-		for (var i = 0, len = city.length; i < len; i++) {
-			city_arr[city[i].addrid] = city[i].name;
-			_select_html_str += '<option value="'+city[i].addrid+'">'+city[i].name+'</option>';
-		};
-		$('#select_city').html('<option value ="0">请选择</option>' + _select_html_str)
-	}, 'json')
-})
+// // bind select change event
+// $('#select_province').on('change', function(){
+// 	if($(this).val() == '0') return;
+// 	$.post('http://123.56.42.248:82/api/Address/getCity', {provinceId: $(this).val()}, function(d){
+// 		var city = d.data, _select_html_str = '';
+// 		city_arr.length = 0;
+// 		for (var i = 0, len = city.length; i < len; i++) {
+// 			city_arr[city[i].addrid] = city[i].name;
+// 			_select_html_str += '<option value="'+city[i].addrid+'">'+city[i].name+'</option>';
+// 		};
+// 		$('#select_city').html('<option value ="0">请选择</option>' + _select_html_str)
+// 	}, 'json')
+// })
 
-$('#select_city').on('change', function(){
-	if($(this).val() == '0') return;
-	$.post('http://123.56.42.248:82/api/Address/getArea', {cityId: $(this).val()}, function(d){
-		var area = d.data, _select_html_str = '';
-		area_arr.length = 0;
-		for (var i = 0, len = area.length; i < len; i++) {
-			area_arr[area[i].addrid] = area[i].name;
-			_select_html_str += '<option value="'+area[i].addrid+'">'+area[i].name+'</option>';
-		};
-		$('#select_area').html('<option value ="0">请选择</option>' + _select_html_str)
-	}, 'json')
-})
+// $('#select_city').on('change', function(){
+// 	if($(this).val() == '0') return;
+// 	$.post('http://123.56.42.248:82/api/Address/getArea', {cityId: $(this).val()}, function(d){
+// 		var area = d.data, _select_html_str = '';
+// 		area_arr.length = 0;
+// 		for (var i = 0, len = area.length; i < len; i++) {
+// 			area_arr[area[i].addrid] = area[i].name;
+// 			_select_html_str += '<option value="'+area[i].addrid+'">'+area[i].name+'</option>';
+// 		};
+// 		$('#select_area').html('<option value ="0">请选择</option>' + _select_html_str)
+// 	}, 'json')
+// })
 
-$('#area_search_btn').click(function(){
-	var _select_province = $('#select_province').val()
-	var _select_city = $('#select_city').val()
-	var _select_area = $('#select_area').val()
-	if(_select_province == 0){
-		alert('请选择省份')
-		return
-	}
+// $('#area_search_btn').click(function(){
+// 	var _select_province = $('#select_province').val()
+// 	var _select_city = $('#select_city').val()
+// 	var _select_area = $('#select_area').val()
+// 	if(_select_province == 0){
+// 		alert('请选择省份')
+// 		return
+// 	}
 
-	if(_select_city == 0){
-		alert('请选择市')
-		return
-	}
+// 	if(_select_city == 0){
+// 		alert('请选择市')
+// 		return
+// 	}
 
-	if(_select_area == 0){
-		alert('请选择区域')
-		return
-	}
+// 	if(_select_area == 0){
+// 		alert('请选择区域')
+// 		return
+// 	}
 
-	location = 'find.html?city=' + encodeURIComponent(province_arr[_select_province] +'|'+ city_arr[_select_city] +'|'+ area_arr[_select_area]);
-})
+// 	location = 'find.html?city=' + encodeURIComponent(province_arr[_select_province] +'|'+ city_arr[_select_city] +'|'+ area_arr[_select_area]);
+// })
 
 /*$('#select_province').on('mouseenter', function(){
 	$('.infoshow').show();
